@@ -1,32 +1,21 @@
-import './App.css'
-import Header from './Header'
-import Header1 from './Header1'
-import TaskItem from './TaskItem'
+import { useState } from "react";
+
 function App() {
+  const [count, setcount] = useState(0);
+
   return (
     <div>
-      <Header
-        Name="Pakistan" />
-      <h1>My Tasks</h1>
-      <TaskItem
-        title="Learn React"
-        description="understand components and JSX"
-        avalable="Yes"
-      />
+      <h1>My First Counter</h1>
 
-      <TaskItem
-        title="Build the frontend"
-        description="Create the Task manager Interface."
-        avalable="No"
-      />
-      <TaskItem
-        title="Learn The Backend"
-        description="Understand APIS and Servers."
-        avalable="yes"
-      />
-      {/* <Header1
-        country="Pakistan" /> */}
+      <p>Current count: {count}</p>
+
+      <button onClick={() => {
+        setcount(count + 1)
+      }}>Increse</button>
+
     </div>
-  )
+  );
+
 }
-export default App
+
+export default App;
