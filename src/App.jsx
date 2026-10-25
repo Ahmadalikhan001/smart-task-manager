@@ -1,30 +1,30 @@
-// // import { useState } from "react";
+// import { useState } from "react";
 
-// // function App() {
-// //   const [count, setcount] = useState(0);
+// function App() {
+//   const [count, setcount] = useState(0);
 
-// //   return (
-// //     <div>
-// //       <h1>My First Counter</h1>
+//   return (
+//     <div>
+//       <h1>My First Counter</h1>
 
-// //       <p>Current count: {count}</p>
-// //       <button
-// //         onClick={() => {
-// //           if (count > 0) {
-// //             setcount(count - 1)
-// //           } else if (count === 0) {
-// //             setcount(0);
-// //           }
-// //         }}>Decreas</button>
-// //       <button onClick={() => {
-// //         setcount(count + 1)
-// //       }}>Increse</button>
-// //     </div>
-// //   );
+//       <p>Current count: {count}</p>
+//       <button
+//         onClick={() => {
+//           if (count > 0) {
+//             setcount(count - 1)
+//           } else if (count === 0) {
+//             setcount(0);
+//           }
+//         }}>Decreas</button>
+//       <button onClick={() => {
+//         setcount(count + 1)
+//       }}>Increse</button>
+//     </div>
+//   );
 
-// // }
+// }
 
-// // export default App;
+// export default App;
 
 
 // import { useState } from "react";
@@ -55,7 +55,7 @@
 // }
 // export default counter;
 
-import { useState } from "react";
+// import { useState } from "react";
 
 function counter() {
   const [count, setcount] = useState(0);
@@ -78,7 +78,17 @@ function counter() {
       <button onClick={() => {
         setcount(0);
       }}>Reset</button>
+
+      function myfun() {
+        console.log("Hellow!")
+      }
+      function CallBack(callback) {
+        callback()
+      }
+      <button onClick={Callback}>CallBack</button>
+
     </div>
   )
 }
 export default counter;
+
