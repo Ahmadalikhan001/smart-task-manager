@@ -131,14 +131,14 @@
 import { useState } from "react";
 
 function App() {
-  const [number2, setNumber2] = useState();
+  const [number2, setNumber2] = useState("");
   function changeNumber(event) {
-    setNumber2(event.target.Value)
+    setNumber2(event.target.value)
   }
   return (
     <div>
       <input type="text" value={number2} onChange={changeNumber} />
-      <h1>Input Value: </h1>
+      <h1>Input Value: {number2}</h1>
     </div>
   )
 
