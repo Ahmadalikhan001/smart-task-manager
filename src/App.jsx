@@ -93,19 +93,37 @@
 // }
 // export default counter;
 
-import { useState } from "react";
+// import { useState } from "react";
 
-function MyComponent() {
-  const [name, setName] = useState("");
-  function Change(event) {
-    setName(event.target.value);
+// function MyComponent() {
+//   const [name, setName] = useState("");
+//   function Change(event) {
+//     setName(event.target.value);
+//   }
+//   return (
+//     <div>
+//       <input type="text" value={name} onChange={Change} />
+//       <h1>Name: {name}</h1>
+//     </div>
+//   );
+// }
+
+// export default MyComponent;
+
+import { useState } from "react";
+function Component_1() {
+  const [name1, setName1] = useState("");
+
+  function ChangeText(event) {
+    setName1(event.target.value);
   }
   return (
     <div>
-      <input type="text" value={name} onChange={Change} />
-      <h1>Name: {name}</h1>
+      <input type="text" value={name1} onChange={ChangeText} />
+      <h1> Typing_Value : {name1}</h1>
     </div>
-  );
+  )
+
 }
 
-export default MyComponent;
+export default Component_1;
