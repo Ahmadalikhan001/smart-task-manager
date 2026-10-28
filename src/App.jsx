@@ -1,164 +1,133 @@
-// // import { useState } from "react";
-
-// // function App() {
-// //   const [count, setcount] = useState(0);
-
-// //   return (
-// //     <div>
-// //       <h1>My First Counter</h1>
-
-// //       <p>Current count: {count}</p>
-// //       <button
-// //         onClick={() => {
-// //           if (count > 0) {
-// //             setcount(count - 1)
-// //           } else if (count === 0) {
-// //             setcount(0);
-// //           }
-// //         }}>Decreas</button>
-// //       <button onClick={() => {
-// //         setcount(count + 1)
-// //       }}>Increse</button>
-// //     </div>
-// //   );
-
-// // }
-
-// // export default App;
-
-
-// // import { useState } from "react";
-
-// // function counter() {
-// //   const [count, setcount] = useState(7)
-// //   return (
-// //     <div>
-// //       <h2>Counter: {count} </h2>
-// //       <button onClick={() => {
-// //         if (count > 0) {
-// //           setcount(count - 1);
-// //         } else if (count === 0) {
-// //           setcount(0);
-// //         }
-// //       }
-// //       }>Decreas</button>
-
-// //       <button onClick={() => {
-// //         setcount(count + 1)
-// //       }}>Increas</button>
-
-// //       <button onClick={() => {
-// //         setcount(7)
-// //       }}>Reset</button>
-// //     </div>
-// //   )
-// // }
-// // export default counter;
-
-// import { useState } from "react";
-
-// function counter() {
-//   const [count, setcount] = useState(0);
-//   return (
-//     <div>
-//       <h1>Count : {count}</h1>
-//       <button onClick={() => {
-//         setcount(count + 2)
-//       }
-//       }>Increas + 2</button>
-
-//       <button onClick={() => {
-//         if (count > 0) {
-//           setcount(count - 1)
-//         } else if (count === 0) {
-//           setcount(0);
-//         }
-//       }}>Decreas - 1</button>
-
-//       <button onClick={() => {
-//         setcount(0);
-//       }}>Reset</button>
-
-//       function myfun() {
-//         console.log("Hellow!")
-//       }
-//       function CallBack(callback) {
-//         callback()
-//       }
-
-//       <button onClick={Callback}>CallBack</button>
-
-//     </div>
-//   )
-// }
-// export default counter;
-
-// import { useState } from "react";
-
-// function MyComponent() {
-//   const [name, setName] = useState("");
-//   function Change(event) {
-//     setName(event.target.value);
-//   }
-//   return (
-//     <div>
-//       <input type="text" value={name} onChange={Change} />
-//       <h1>Name: {name}</h1>
-//     </div>
-//   );
-// }
-
-// export default MyComponent;
-
-// import { useState } from "react";
-// function Component_1() {
-//   const [name1, setName1] = useState("");
-
-//   function ChangeText(event) {
-//     setName1(event.target.value);
-//   }
-//   return (
-//     <div>
-//       <input type="text" value={name1} onChange={ChangeText} />
-//       <h1> Typing_Value : {name1}</h1>
-//     </div>
-//   )
-
-// }
-
-// export default Component_1;
-
 // import { useState } from "react";
 
 // function App() {
-//   const [number2, setNumber2] = useState("");
-//   function changeNumber(event) {
-//     setNumber2(event.target.value)
-//   }
-//   return (
-//     <div>
-//       <input type="text" value={number2} onChange={changeNumber} />
-//       <h1>Input Value: {number2}</h1>
-//     </div>
-//   )
+//   const [tasks, setTasks] = useState([
+//     { id: 1, title: "Learn React", completed: false },
+//     { id: 2, title: "Understand state", completed: false },
+//   ]);
 
+//   const [taskTitle, setTaskTitle] = useState("");
+
+//   function handleSubmit(event) {
+//     event.preventDefault();
+
+//     const title = taskTitle.trim();
+
+//     if (title === "") {
+//       return;
+//     }
+
+//     const newTask = {
+//       id: crypto.randomUUID(),
+//       title: title,
+//       completed: false,
+//     };
+
+//     setTasks((currentTasks) => [...currentTasks, newTask]);
+//     setTaskTitle("");
+//   }
+
+//   function handleToggle(taskId) {
+//     setTasks((currentTasks) =>
+//       currentTasks.map((task) =>
+//         task.id === taskId
+//           ? { ...task, completed: !task.completed }
+//           : task
+//       )
+//     );
+//   }
+
+//   function handleDelete(taskId) {
+//     setTasks((currentTasks) =>
+//       currentTasks.filter((task) => task.id !== taskId)
+//     );
+//   }
+
+//   return (
+//     <main>
+//       <h1>Smart Task Manager</h1>
+//       <p>Organize your work, one task at a time.</p>
+
+//       <form onSubmit={handleSubmit}>
+//         <input
+//           type="text"
+//           placeholder="Enter a new task"
+//           value={taskTitle}
+//           onChange={(event) => setTaskTitle(event.target.value)}
+//         />
+
+//         <button type="submit">Add Task</button>
+//       </form>
+
+//       <h2>My Tasks ({tasks.length})</h2>
+
+//       {tasks.length === 0 ? (
+//         <p>No tasks yet. Add your first task!</p>
+//       ) : (
+//         <ul>
+//           {tasks.map((task) => (
+//             <li key={task.id}>
+//               <span
+//                 style={{
+//                   textDecoration: task.completed
+//                     ? "line-through"
+//                     : "none",
+//                 }}
+//               >
+//                 {task.title}
+//               </span>
+
+//               <button
+//                 type="button"
+//                 onClick={() => handleToggle(task.id)}
+//               >
+//                 {task.completed ? "Undo" : "Complete"}
+//               </button>
+
+//               <button
+//                 type="button"
+//                 onClick={() => handleDelete(task.id)}
+//               >
+//                 Delete
+//               </button>
+//             </li>
+//           ))}
+//         </ul>
+//       )}
+//     </main>
+//   );
 // }
+
 // export default App;
+
 
 import { useState } from "react";
 
-function MyComp() {
-  const [Input, setInput] = useState("");
+function App() {
+  const [name, setName] = useState("");
 
-  function NewInput(event) {
-    setInput(event.target.value)
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    alert("Your name is: " + name);
   }
+
   return (
     <div>
-      <input type="text" value={Input} onChange={NewInput} />
-      <h1>Input Value : {Input}</h1>
+      <h2>Enter Your Name</h2>
+
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          placeholder="Enter your name"
+        />
+
+        <button type="submit">Submit</button>
+      </form>
     </div>
-  )
+  );
 }
 
-export default MyComp;
+export default App;
