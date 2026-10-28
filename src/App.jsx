@@ -101,33 +101,56 @@
 // export default App;
 
 
+// import { useState } from "react";
+
+// function App() {
+//   const [name, setName] = useState("");
+
+//   function handleSubmit(event) {
+//     event.preventDefault();
+
+//     alert("Your name is: " + name);
+//   }
+
+//   return (
+//     <div>
+//       <h2>Enter Your Name</h2>
+
+//       <form onSubmit={handleSubmit} >
+//         <input
+//           type="text"
+//           value={name}
+//           onChange={(event) => setName(event.target.value)}
+//           placeholder="Enter your name"
+//         />
+
+//         <button type="submit">Submit</button>
+//       </form>
+//     </div>
+//   );
+// }
+
+// export default App;
 import { useState } from "react";
 
 function App() {
   const [name, setName] = useState("");
 
-  function handleSubmit(event) {
+  function ChangeName(event) {
     event.preventDefault();
 
-    alert("Your name is: " + name);
+    alert(`Your Name is ${name}`);
   }
-
   return (
     <div>
-      <h2>Enter Your Name</h2>
-
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-          placeholder="Enter your name"
-        />
+      <h1>Enter Your Name</h1>
+      <form onSubmit={ChangeName}>
+        <input type="text" value={name} onChange={(event) => setName(event.target.value)} placeholder="Enter your name" />
 
         <button type="submit">Submit</button>
       </form>
     </div>
-  );
+  )
 }
 
 export default App;
